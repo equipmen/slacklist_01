@@ -9,6 +9,26 @@
   </head>
 
   <body>
+    
+    <header>
+      <div class="header-logo">
+        <a href="/">Slacklist.ja</a>
+      </div>
+      <ul class="header-menus">
+        
+        <li>
+          <a href="/">コミュニティ一覧</a>
+        </li>
+        <li>
+          <a href="/posts/new">新しいコミュニティ</a>
+        </li>
+      </ul>
+    </header>
+    <% if flash[:notice]%>
+      <div class = "flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

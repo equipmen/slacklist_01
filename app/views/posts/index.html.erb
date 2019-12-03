@@ -1,0 +1,16 @@
+
+<div class="main posts-index">
+  <div class="container">
+    <!--投稿始まり-->
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+    
+        <%= link_to(post.title,"/posts/#{post.id}") %><br>
+        
+        <%= link_to '<参加するボタン>', post.url %><br>
+        
+        <%=post.reference %>
+
+      </div>
+    <% end %>
+  </div>
