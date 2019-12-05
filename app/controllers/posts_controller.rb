@@ -1,10 +1,18 @@
 class PostsController < ApplicationController
   def index
-    @posts =Post.all.order(created_at: :desc)
-      
-  
+    #@posts =Post.all.order(created_at: :desc)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
   end
-  
+
+  def search
+    #検索フォーム
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    render("posts/index")
+  end
+
+
   def show
     @post = Post.find_by(id:params[:id])
   end
