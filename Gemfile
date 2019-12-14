@@ -10,6 +10,7 @@ gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.6.4'
 gem 'rails-i18n'
 gem 'ransack'
+gem 'acts-as-taggable-on',github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 
 group :development, :test do
   gem 'sqlite3',      '1.3.13'

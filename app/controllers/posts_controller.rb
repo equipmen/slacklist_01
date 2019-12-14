@@ -22,7 +22,8 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(title: params[:title],url: params[:url],reference: params[:reference])
+    @post = Post.new(title: params[:title],url: params[:url],reference: params[:reference],)
+    @post.tag_list.add(params[:tag_list])
     if @post.save
       redirect_to("/")
       flash[:notice] = "投稿が作成されました。"
@@ -56,6 +57,12 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to("/")
     flash[:notice] = "投稿が削除されました。"
+  end
+
+
+  def post_params
+    params.require(:post).permit(:title, :reference, :url, :tag_list) 
+    #tag_list を追加
   end
   
 end
