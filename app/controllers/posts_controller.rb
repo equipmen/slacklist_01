@@ -36,7 +36,7 @@ class PostsController < ApplicationController
     @post.reference = params[:reference]
     
     if @post.save
-      redirect_to("/")
+      redirect_to root_path
       flash[:notice] = "投稿が編集されました。"
     else
       render("posts/edit")

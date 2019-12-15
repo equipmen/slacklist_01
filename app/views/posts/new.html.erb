@@ -3,7 +3,7 @@
     <h1 class="form-heading">投稿する</h1>
     <div class="form">
       <div class="form-body">
-        <%= form_tag ("/posts/create") do %>
+        <%= form_tag(posts_path, method: :post) do %>
           <p>コミュニティのタイトル</p>
           <% @post.errors.full_messages.each do |message| %>
             <div class="form-error">
