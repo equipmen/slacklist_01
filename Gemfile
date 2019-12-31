@@ -15,6 +15,10 @@ gem 'acts-as-taggable-on',github: 'mbleigh/acts-as-taggable-on', branch: 'master
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
   gem 'byebug', '9.0.6', platform: :mri
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :development do

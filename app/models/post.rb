@@ -1,6 +1,11 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
-  acts_as_taggable
-  validates :title, {presence: true, length:{maximum:140}}
-  validates :url, {presence: true, length:{maximum:140}}
-  validates :reference, {presence: true, length:{maximum:140}}
+  belongs_to :user
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  validates :title, presence: true, length: { maximum: 140 }
+  # validates :url, presence: true, length: { maximum: 140 }
+  # validates :reference, presence: true, length: { maximum: 140 }
 end
