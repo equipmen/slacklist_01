@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/mbleigh/acts-as-taggable-on.git
+  remote: git://github.com/mbleigh/acts-as-taggable-on.git
   revision: 6055f9618a004c5bfdf1740d5479f4885696b7ee
   branch: master
   specs:
@@ -133,7 +133,7 @@ GEM
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     puma (3.9.1)
-    rack (2.0.7)
+    rack (2.1.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
