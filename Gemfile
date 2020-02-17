@@ -12,6 +12,16 @@ gem 'rails-i18n'
 gem 'ransack'
 gem 'acts-as-taggable-on',github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'config'
+#rubocop
+gem 'rubocop'
+gem 'rubocop-minitest', require: false
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails', require: false
+gem 'rubocop-rake', require: false
+gem 'rubocop-rubycw', require: false
+
+
+
 
 
 group :development, :test do
