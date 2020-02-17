@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  remote: https://github.com/mbleigh/acts-as-taggable-on.git
   revision: 6055f9618a004c5bfdf1740d5479f4885696b7ee
   branch: master
   specs:
@@ -187,8 +187,6 @@ GEM
       rubocop (>= 0.72.0)
     rubocop-rspec (1.37.1)
       rubocop (>= 0.68.1)
-    rubocop-rubycw (0.1.4)
-      rubocop
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     sass (3.7.4)
@@ -254,7 +252,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rspec
-  rubocop-rubycw
   sass-rails (= 5.0.6)
   spring (= 2.0.2)
   spring-watcher-listen (= 2.0.1)
