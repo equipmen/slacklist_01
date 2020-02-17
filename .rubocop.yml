@@ -1,0 +1,18 @@
+require:
+  - rubocop-rails
+  - rubocop-minitest
+  - rubocop-rubycw
+  - rubocop-rake
+  - rubocop-performance
+
+Style/AsciiComments:
+  Enabled: false
+  Discription: 'this service is developed by Japanese.'
+
+Style/Documentation:
+  Enabled: false
+  Discription: 'the classes are ordinary so no discription needed.'
+
+
+
+inherit_from: .rubocop_todo.yml
