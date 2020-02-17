@@ -1,7 +1,3 @@
 # README
 
-gittest
-
-gittest2
-
-master
+ボタン一つでスラックコミュニティのリストを追加できるサイトです。
