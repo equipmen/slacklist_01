@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy] 
 
   def index
-    # @posts =Post.all.order(created_at: :desc)
+    #@posts =Post.all.order(created_at: :desc)
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
@@ -17,17 +17,19 @@ class PostsController < ApplicationController
     render('posts/index')
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
+    @post.taggings.build
   end
 
   def create
-    @post = Post.new(title: params[:title], url: params[:url], reference: params[:reference])
-    @post.tag_list.add(params[:tag_list])
-    if @post.save
+    @post = Post.new(title: params[:title], 
+                     url: params[:url], 
+                     reference: params[:reference])
+    @tag  = Tag.new(name: params[:tag])
+    if @post.save && @tag.save
       redirect_to('/')
       flash[:notice] = '投稿が作成されました。'
     else
@@ -36,8 +38,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @post.title = params[:title]
@@ -59,10 +60,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :reference, :url, :tag_list)
-    # tag_list を追加
+    params.require(:post).permit(:title, :reference, :url, :tag, :tag_id,:post_id)
   end
   
-  def set_post
-  end
+  def set_post; end
 end

@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 20191231113413) do
     t.text "title"
     t.text "url"
     t.text "reference"
+    t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_posts_on_tag_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

@@ -1,12 +1,11 @@
-
 <div class="main posts-index">
   <div class="container">
   
-  <%= search_form_for(@q,url:posts_path) do |f| %>
-    <%= f.label :title, "Keyword" %>
-    <%= f.search_field :title_cont %>
-    <%= f.submit "検索" %>
-  <% end %>
+    <%= search_form_for(@q,url:posts_path) do |f| %>
+      <%= f.label :title, "Keyword" %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
 
     <!--投稿始まり-->
     <% @posts.each do |post| %>
@@ -17,11 +16,11 @@
         <%= link_to '<参加するボタン>', post.url %><br>
         
         <%=post.reference %><br>
-
-        <p>tags: <%= post.tag_list %></p>
-
         
-
+        <%=post.taggings.each do |tagging| %>
+          <%= tagging.tag.name %>
+        <%end%>
       </div>
     <% end %>
   </div>
+</div>
