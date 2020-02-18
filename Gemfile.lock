@@ -181,8 +181,6 @@ GEM
       rubocop (>= 0.72.0)
     rubocop-rake (0.5.1)
       rubocop
-    rubocop-rspec (1.37.1)
-      rubocop (>= 0.68.1)
     rubocop-rubycw (0.1.4)
       rubocop
     ruby-progressbar (1.10.1)
@@ -250,7 +248,6 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   rubocop-rake
-  rubocop-rspec
   rubocop-rubycw
   sass-rails (= 5.0.6)
   spring (= 2.0.2)

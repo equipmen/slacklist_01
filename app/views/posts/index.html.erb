@@ -15,10 +15,10 @@
         
         <%= link_to '<参加するボタン>', post.url %><br>
         
-        <%=post.reference %><br>
+        <%= post.reference %><br>
         
-        <%=post.taggings.each do |tagging| %>
-          <%= tagging.tag.name %>
+        <% post.tags.each do |tag| %>
+          <%= tag.name %> 
         <%end%>
       </div>
     <% end %>

@@ -1,6 +1,7 @@
-class Post < ApplicationRecord
+# frozen_string_literal: true
 
-  has_many :taggings
+class Post < ApplicationRecord
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   validates :title, presence: true, length: { maximum: 140 }

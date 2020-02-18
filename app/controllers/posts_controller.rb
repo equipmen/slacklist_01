@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-
-  before_action :set_post, only: %i[show edit update destroy] 
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    #@posts =Post.all.order(created_at: :desc)
+    # @posts =Post.all.order(created_at: :desc)
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
@@ -25,11 +24,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], 
-                     url: params[:url], 
+    @post = Post.new(title: params[:title],
+                     url: params[:url],
                      reference: params[:reference])
-    @tag  = Tag.new(name: params[:tag])
-    if @post.save && @tag.save
+    # @tag  = Tag.new(name: params[:tag])
+    @post.tags.build(name: params[:tag])
+    if @post.save
       redirect_to('/')
       flash[:notice] = '投稿が作成されました。'
     else
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 
     if @post.save
       redirect_to root_path
-      flash[:notice] = "投稿が編集されました。"
+      flash[:notice] = '投稿が編集されました。'
     else
       render('posts/edit')
     end
@@ -60,8 +60,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :reference, :url, :tag, :tag_id,:post_id)
+    params.require(:post).permit(:title, :reference, :url, :tag, :tag_id, :post_id)
   end
-  
+
   def set_post; end
 end
