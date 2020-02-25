@@ -27,8 +27,10 @@ class PostsController < ApplicationController
     @post = Post.new(title: params[:title],
                      url: params[:url],
                      reference: params[:reference])
-    # @tag  = Tag.new(name: params[:tag])
-    @post.tags.build(name: params[:tag])
+    tgs = params[:tag].split(',')
+    tgs. each do |t|
+      @post.tags.build(name: t)
+    end
     if @post.save
       redirect_to('/')
       flash[:notice] = '投稿が作成されました。'
