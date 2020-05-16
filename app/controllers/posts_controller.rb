@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    # @posts =Post.all.order(created_at: :desc)
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true)
   end
@@ -27,10 +26,7 @@ class PostsController < ApplicationController
     @post = Post.new(title: params[:title],
                      url: params[:url],
                      reference: params[:reference])
-    tgs = params[:tag].split(',')
-    tgs. each do |t|
-      @post.tags.build(name: t)
-    end
+    tag_input
     if @post.save
       redirect_to('/')
       flash[:notice] = '投稿が作成されました。'
@@ -46,7 +42,7 @@ class PostsController < ApplicationController
     @post.title = params[:title]
     @post.url = params[:url]
     @post.reference = params[:reference]
-
+    tag_input
     if @post.save
       redirect_to root_path
       flash[:notice] = '投稿が編集されました。'
@@ -65,5 +61,16 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :reference, :url, :tag, :tag_id, :post_id)
   end
 
-  def set_post; end
+  def set_post
+    @post = Post.find_by(id: params[:id])
+  end
+
+  private
+
+  def tag_input
+    tgs = params[:tag].split(',')
+    tgs. each do |t|
+      @post.tags.build(name: t)
+    end
+  end
 end
