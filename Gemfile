@@ -13,6 +13,7 @@ gem 'ransack'
 gem 'sass-rails',   '5.0.6'
 gem 'turbolinks',   '5.0.1'
 gem 'uglifier',     '3.2.0'
+gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
@@ -22,7 +23,6 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
   gem 'rubocop-rubycw', require: false
-  gem 'sqlite3', '1.3.13'
 end
 
 group :development do
