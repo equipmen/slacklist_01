@@ -22,9 +22,6 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
   database: sl_production
-  host: <%= ENV["RAILS_DB_HOST"] %>
-  username: <%= ENV["RAILS_DB_USER"] %>
-  
+  username: root 
+　password:
