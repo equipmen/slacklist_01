@@ -2,11 +2,12 @@
 
 source 'https://rubygems.org'
 
+gem 'mysql2', '~> 0.4.0'
+
 gem 'coffee-rails', '4.2.2'
 gem 'config'
 gem 'jbuilder',     '2.6.4'
 gem 'jquery-rails', '4.3.1'
-gem 'mysql2'
 gem 'puma', '3.9.1'
 gem 'rails', '5.1.6'
 gem 'rails-i18n'
